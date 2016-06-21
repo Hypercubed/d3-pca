@@ -1,5 +1,16 @@
-import d3 from 'd3';
-import d3pca from '../src';
+const process = require('process');
+
+process.platform = 'browser';
+
+process.stderr = {
+  write: console.error.bind(console)
+};
+process.stdout = {
+  write: console.log.bind(console)
+};
+
+const d3 = require('d3');
+const d3pca = require('../src');
 
 d3.csv('data.csv')
   .row(function(d) {
